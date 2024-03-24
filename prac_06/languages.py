@@ -1,15 +1,19 @@
-class ProgrammingLanguage:
-    def __init__(self, name, typing, reflection, year):
-        self.name = name
-        self.typing = typing
-        self.reflection = reflection
-        self.year = year
+# languages.py
+from programming_language import ProgrammingLanguage
 
-    def is_dynamic(self):
-        return self.typing.lower() == 'dynamic'
+def main():
+    """Main program to demonstrate the use of the ProgrammingLanguage class."""
+    python = ProgrammingLanguage("Python", "Dynamic", True, 1991)
+    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995)
+    visual_basic = ProgrammingLanguage("Visual Basic", "Static", False, 1991)
+    languages = [python, ruby, visual_basic]
+    print("The dynamically typed languages are:")
+    for language in languages:
+        if language.is_dynamic():
+            print(language.name)
 
-java = ProgrammingLanguage('Java', 'Static', 'Yes', 1995)
-python = ProgrammingLanguage('Python', 'Dynamic', 'Yes', 1991)
+    print(f"\nTesting the __str__ method:")
+    for language in languages:
+        print(language)
 
-print(java.is_dynamic())
-print(python.is_dynamic())
+main()
