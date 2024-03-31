@@ -1,0 +1,24 @@
+<Converter>:
+    orientation: 'vertical'
+    BoxLayout:
+        size_hint_y: None
+        height: '48dp'
+        TextInput:
+            id: input_miles
+            text: '0'
+            on_text: root.convert(self.text)
+        Button:
+            text: 'Up'
+            on_press: root.increment(1)
+        Button:
+            text: 'Down'
+            on_press: root.increment(-1)
+    Button:
+        text: 'Convert miles to km'
+        size_hint_y: None
+        height: '48dp'
+        on_press: root.convert(input_miles.text)
+    Label:
+        text: root.kilometers
+        size_hint_y: None
+        height: '48dp'
