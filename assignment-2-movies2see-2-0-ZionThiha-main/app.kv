@@ -1,0 +1,73 @@
+BoxLayout:
+# movies2see.kv
+
+BoxLayout:
+    orientation: 'horizontal'
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.4
+
+        Spinner:
+            id: sort_spinner
+            text: 'Sort by...'
+            values: ['Title', 'Year']
+            size_hint_y: None
+            height: 50
+            on_text: app.on_spinner_select(self.text)
+
+        TextInput:
+            id: title_input
+            hint_text: 'Title'
+            size_hint_y: None
+            height: 50
+
+        TextInput:
+            id: year_input
+            hint_text: 'Year'
+            size_hint_y: None
+            height: 50
+
+        Spinner:
+            id: category_input
+            text: 'Category'
+            values: ['Action', 'Comedy', 'Documentary', 'Drama', 'Fantasy', 'Thriller']
+            size_hint_y: None
+            height: 50
+
+        Button:
+            text: 'Add Movie'
+            size_hint_y: None
+            height: 50
+            on_press: app.add_new_movie()
+
+        Button:
+            text: 'Clear'
+            size_hint_y: None
+            height: 50
+            on_press: app.clear_fields()
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.6
+
+        Label:
+            id: status_label_top
+            size_hint_y: None
+            height: 50
+
+        ScrollView:
+            size_hint: (1, None)
+            size: (400, 500)
+
+            GridLayout:
+                id: movie_grid
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+
+        Label:
+            id: status_label_bottom
+            size_hint_y: None
+            height: 50
+            text: 'Ready'
